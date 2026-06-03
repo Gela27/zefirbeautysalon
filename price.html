@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Прайс-лист — Салон красоты «Зефир»</title>
+
+  <link rel="icon" href="image/ico.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="image/ico.png" type="image/png" sizes="32x32">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Экран загрузки  -->
+<div class="preloader" id="preloader">
+  <div class="preloader-content">
+    <div class="preloader-wheel"></div>
+    <div class="preloader-logo">
+    <img src="image/icon.png" alt="Зефир" class="logo-img"></div>
+    <div class="preloader-text">Зефир<div class="preloader-dots"><span></span><span></span><span></span></div></div>
+  </div>
+</div>
+
+  <!-- Сайдбар -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-wrapper">
+        <div class="logo-text">
+          <div class="logo">Зефир</div>
+          <div class="logo-subtitle">салон красоты</div>
+        </div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html#about" onclick="closeSidebar()">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>О салоне
+      </a>
+      <a href="index.html#services" onclick="closeSidebar()">
+        <svg class="icon" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="7" height="7"/>
+          <rect x="14" y="3" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/>
+          <rect x="3" y="14" width="7" height="7"/>
+        </svg>Услуги
+      </a>
+      <a href="index.html#masters" onclick="closeSidebar()">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>Мастера
+      </a>
+      <a href="index.html#reviews" onclick="closeSidebar()">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>Отзывы
+      </a>
+      <a href="index.html#contacts" onclick="closeSidebar()">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>Контакты
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="tel:+79227800087" class="phone">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>+7 (922) 780-00-87
+      </a>
+      <a href="https://vk.com/im?sel=-53497046&text=Здравствуйте! Хочу записаться на процедуру." target="_blank" rel="noopener noreferrer" class="btn" onclick="closeSidebar()">Записаться</a>
+    </div>
+  </div>
+
+  <!-- Шапка -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-text">
+          <div class="logo">Зефир</div>
+          <div class="logo-subtitle">салон красоты</div>
+        </div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html#about">О салоне</a>
+        <a href="index.html#services">Услуги</a>
+        <a href="index.html#masters">Мастера</a>
+        <a href="index.html#reviews">Отзывы</a>
+        <a href="index.html#contacts">Контакты</a>
+      </nav>
+      <button class="burger-btn" id="burgerBtn" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Прайс-лист -->
+  <section class="price-section">
+    <div class="container">
+      <div class="price-header">
+        <h1>Услуги и цены</h1>
+        <p>Актуальные цены на все услуги салона красоты «Зефир»</p>
+      </div>
+
+      <div class="price-tabs">
+        <button class="price-tab active" data-category="hair">Парикмахерские услуги</button>
+        <button class="price-tab" data-category="nails">Ногтевой сервис</button>
+        <button class="price-tab" data-category="cosmetology">Косметология</button>
+      </div>
+
+      <div class="price-grid">
+        <div class="price-category active" id="hair">
+          <div class="price-category-title">Парикмахерские услуги</div>
+          <div class="price-item"><span class="price-name">Женские стрижки</span><span class="price-value">от 1000 ₽</span></div>
+          <div class="price-item"><span class="price-name">Мужские стрижки</span><span class="price-value">1200 ₽</span></div>
+          <div class="price-item"><span class="price-name">Детские стрижки</span><span class="price-value">950 ₽</span></div>
+          <div class="price-item"><span class="price-name">Стрижка челки</span><span class="price-value">350-550 ₽</span></div>
+          <div class="price-item"><span class="price-name">Тотал-блонд</span><span class="price-value">от 4500 ₽</span></div>
+          <div class="price-item"><span class="price-name">Airtouch</span><span class="price-value">от 9500 до 20000 ₽</span></div>
+          <div class="price-item"><span class="price-name">Сложные окрашивания</span><span class="price-value">от 8500 ₽</span></div>
+          <div class="price-item"><span class="price-name">Мелирование</span><span class="price-value">от 3500 ₽</span></div>
+          <div class="price-item"><span class="price-name">Тонирование</span><span class="price-value">от 4500 ₽</span></div>
+          <div class="price-item"><span class="price-name">Укладки</span><span class="price-value">от 550 ₽</span></div>
+          <div class="price-item"><span class="price-name">Макияж</span><span class="price-value">от 800 ₽</span></div>
+          <div class="price-item"><span class="price-name">Прически</span><span class="price-value">от 1350 ₽</span></div>
+          <div class="price-item"><span class="price-name">Консультация трихолога</span><span class="price-value">1500 ₽</span></div>
+          <div class="price-item"><span class="price-name">Консультация трихолога+очищение кожи головы</span><span class="price-value">3600 ₽</span></div>
+          <div class="price-item"><span class="price-name">Гигиена кожи головы</span><span class="price-value">3000 ₽</span></div>
+          <div class="price-item"><span class="price-name">Detox кожи головы</span><span class="price-value">2500 ₽</span></div>
+          <div class="price-item"><span class="price-name">Очищение кожи головы</span><span class="price-value">2200-3000 ₽</span></div>
+          <div class="price-item"><span class="price-name">ПФО коррекция</span><span class="price-value">4500 ₽</span></div>  
+        </div>
+
+        <div class="price-category" id="nails">
+          <div class="price-category-title">Ногтевой сервис</div>
+          <div class="price-item"><span class="price-name">Маникюр без покрытия</span><span class="price-value">800 ₽</span></div>
+          <div class="price-item"><span class="price-name">Маникюр с однотонным покрытием</span><span class="price-value">1600 ₽</span></div>
+          <div class="price-item"><span class="price-name">Дизайн 1 ногтя</span><span class="price-value">от 50 ₽</span></div>
+          <div class="price-item"><span class="price-name">Ремонт 1 ногтя</span><span class="price-value">от 100 ₽</span></div>
+          <div class="price-item"><span class="price-name">Наращивание</span><span class="price-value">от 2500 ₽</span></div>
+          <div class="price-item"><span class="price-name">Френч</span><span class="price-value">250 ₽</span></div>
+        </div>
+
+        <div class="price-category" id="cosmetology">
+          <div class="price-category-title">Косметология</div>
+          <div class="price-item"><span class="price-name">Лечение волос</span><span class="price-value">от 4500 ₽</span></div>
+          <div class="price-item"><span class="price-name">Slim Face</span><span class="price-value">от 3500 ₽</span></div>
+          <div class="price-item"><span class="price-name">Биорепарация</span><span class="price-value">от 8500 ₽</span></div>
+          <div class="price-item"><span class="price-name">Биоэкспандер</span><span class="price-value">13500 ₽</span></div>
+          <div class="price-item"><span class="price-name">Стимуляция (армирование)</span><span class="price-value">от 16500 ₽</span></div>
+          <div class="price-item"><span class="price-name">Плазма Basic (1 форма)</span><span class="price-value">6000 ₽</span></div>
+          <div class="price-item"><span class="price-name">Плазма Pro (2 формы)</span><span class="price-value">9000 ₽</span></div>
+          <div class="price-item"><span class="price-name">Плазма Luxe (3 формы)</span><span class="price-value">12000 ₽</span></div>
+          <div class="price-item"><span class="price-name">Плазмогель</span><span class="price-value">12000 ₽</span></div>
+          <div class="price-item"><span class="price-name">Комплексная чистка лица</span><span class="price-value">2800 ₽</span></div>
+          <div class="price-item"><span class="price-name">Чистка лица + peach peel</span><span class="price-value">4800 ₽</span></div>
+          <div class="price-item"><span class="price-name">Чистка лица + пилинг "Выходного дня"</span><span class="price-value">3200 ₽</span></div>
+          <div class="price-item"><span class="price-name">Пилинг DSA</span><span class="price-value">3500 ₽</span></div>
+          <div class="price-item"><span class="price-name">Peach Peel</span><span class="price-value">3500 ₽</span></div>
+        </div>
+      </div>
+
+      <div class="price-subnote">* Цены указаны ориентировочно, точную стоимость уточняйте у администратора</div>
+      <div class="back-to-main">
+        <a href="index.html" class="back-btn">
+          <svg class="icon" style="width:18px;height:18px;" viewBox="0 0 24 24">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>Вернуться на главную
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подвал -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-wrapper">
+            <div class="logo-text">
+              <div class="logo">Зефир</div>
+              <div class="logo-subtitle">салон красоты</div>
+            </div>
+          </div>
+          <p>Салон красоты с душой. Пространство, где рождается гармония.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Услуги</h4>
+          <ul>
+            <li><a href="index.html#services">Парикмахерские услуги</a></li>
+            <li><a href="index.html#services">Ногтевой сервис</a></li>
+            <li><a href="index.html#services">Косметология</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Информация</h4>
+          <ul>
+            <li><a href="index.html#about">О салоне</a></li>
+            <li><a href="index.html#masters">Мастера</a></li>
+            <li><a href="index.html#reviews">Отзывы</a></li>
+            <li><a href="index.html#contacts">Контакты</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Салон красоты «Зефир». Все права защищены.</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
