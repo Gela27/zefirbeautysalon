@@ -20,11 +20,6 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent;}
 
-.section, .hero, .features, .about, .services, .reviews, .contacts, .container {background-color: transparent;}
-.service-card, .review-card, .contacts-info, .feature-card, .modal-content {background-color: #ffffff !important;}
-header, .sidebar, footer {background-color: #0a0a0a !important;}
-img, iframe, video {filter: none !important;}
-
 .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease, visibility 0.5s ease; }
 .preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .preloader-content { position: relative; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; }
