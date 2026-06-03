@@ -340,7 +340,6 @@ footer { background: #0a0a0a; color: rgba(255, 255, 255, 0.7); padding: 40px 0 2
   .hero-text p { font-size: 15px; }
   .hero .btn, .hero .btn-outline { padding: 18px 36px; font-size: 16px; min-height: 54px; }
   .hero-buttons { flex-direction: column; align-items: center; }
-  .hero-stats { flex-direction: column; align-items: center; gap: 20px; }
   .stat { text-align: center; }
   .hero-logo-box { max-width: 240px; border-radius: 24px; }
   .contact-btn { padding: 16px 28px; font-size: 15px; min-height: 52px; }
