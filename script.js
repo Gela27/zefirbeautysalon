@@ -65,6 +65,75 @@ document.querySelectorAll('.animate').forEach(function(el) {
   observer.observe(el);
 });
 
+// Переключать на прайс определенной услуги
+document.addEventListener('DOMContentLoaded', function() { 
+  var urlParams = new URLSearchParams(window.location.search); 
+  var tab = urlParams.get('tab'); if (tab) { 
+    var targetTab = document.querySelector('.price-tab[data-category="' + tab + '"]'); 
+    if (targetTab) { targetTab.click(); 
+    } 
+  } 
+});
+
+// Слайдер о салоне 
+var currentAboutSlide = 0;
+var aboutSlides = document.querySelectorAll('.about-slide');
+var totalAboutSlides = aboutSlides.length;
+var aboutDotsContainer = document.getElementById('aboutDots');
+var aboutProgressBar = document.getElementById('aboutProgress');
+var aboutAutoInterval, aboutProgressInt;
+var aboutSlideDuration = 4000;
+
+if (aboutSlides.length > 0 && aboutDotsContainer) {
+  aboutSlides.forEach(function(_, index) {
+    var dot = document.createElement('button');
+    dot.className = 'about-dot' + (index === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Слайд ' + (index + 1));
+    dot.onclick = function() {
+      goToAboutSlide(index);
+    };
+    aboutDotsContainer.appendChild(dot);
+  });
+
+  var aboutDots = document.querySelectorAll('.about-dot');
+
+  function goToAboutSlide(index) {
+    aboutSlides[currentAboutSlide].classList.remove('active');
+    aboutDots[currentAboutSlide].classList.remove('active');
+    currentAboutSlide = index;
+    aboutSlides[currentAboutSlide].classList.add('active');
+    aboutDots[currentAboutSlide].classList.add('active');
+    resetAboutAuto();
+  }
+
+  function nextAboutSlide() {
+    goToAboutSlide((currentAboutSlide + 1) % totalAboutSlides);
+  }
+
+  function startAboutAuto() {
+    var progress = 0;
+    aboutAutoInterval = setInterval(function() {
+      nextAboutSlide();
+    }, aboutSlideDuration);
+    aboutProgressInt = setInterval(function() {
+      progress += (50 / aboutSlideDuration) * 100;
+      if (progress > 100) progress = 0;
+      if (aboutProgressBar) aboutProgressBar.style.width = progress + '%';
+    }, 50);
+  }
+
+  function resetAboutAuto() {
+    clearInterval(aboutAutoInterval);
+    clearInterval(aboutProgressInt);
+    if (aboutProgressBar) aboutProgressBar.style.width = '0%';
+    startAboutAuto();
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    startAboutAuto();
+  });
+}
+
 // Переключение вкладок на странице прайса 
 document.addEventListener('DOMContentLoaded', function() {
   var priceTabs = document.querySelectorAll('.price-tab');
@@ -241,71 +310,3 @@ if (prevBtn && nextBtn && carouselWrapper3D && cards3D.length) {
     startAuto3D();
   });
 }
-
-// Слайдер о салоне 
-var currentAboutSlide = 0;
-var aboutSlides = document.querySelectorAll('.about-slide');
-var totalAboutSlides = aboutSlides.length;
-var aboutDotsContainer = document.getElementById('aboutDots');
-var aboutProgressBar = document.getElementById('aboutProgress');
-var aboutAutoInterval, aboutProgressInt;
-var aboutSlideDuration = 4000;
-
-if (aboutSlides.length > 0 && aboutDotsContainer) {
-  aboutSlides.forEach(function(_, index) {
-    var dot = document.createElement('button');
-    dot.className = 'about-dot' + (index === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', 'Слайд ' + (index + 1));
-    dot.onclick = function() {
-      goToAboutSlide(index);
-    };
-    aboutDotsContainer.appendChild(dot);
-  });
-
-  var aboutDots = document.querySelectorAll('.about-dot');
-
-  function goToAboutSlide(index) {
-    aboutSlides[currentAboutSlide].classList.remove('active');
-    aboutDots[currentAboutSlide].classList.remove('active');
-    currentAboutSlide = index;
-    aboutSlides[currentAboutSlide].classList.add('active');
-    aboutDots[currentAboutSlide].classList.add('active');
-    resetAboutAuto();
-  }
-
-  function nextAboutSlide() {
-    goToAboutSlide((currentAboutSlide + 1) % totalAboutSlides);
-  }
-
-  function startAboutAuto() {
-    var progress = 0;
-    aboutAutoInterval = setInterval(function() {
-      nextAboutSlide();
-    }, aboutSlideDuration);
-    aboutProgressInt = setInterval(function() {
-      progress += (50 / aboutSlideDuration) * 100;
-      if (progress > 100) progress = 0;
-      if (aboutProgressBar) aboutProgressBar.style.width = progress + '%';
-    }, 50);
-  }
-
-  function resetAboutAuto() {
-    clearInterval(aboutAutoInterval);
-    clearInterval(aboutProgressInt);
-    if (aboutProgressBar) aboutProgressBar.style.width = '0%';
-    startAboutAuto();
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    startAboutAuto();
-  });
-}
-// Переключать на прайс определенной услуги
-document.addEventListener('DOMContentLoaded', function() { 
-  var urlParams = new URLSearchParams(window.location.search); 
-  var tab = urlParams.get('tab'); if (tab) { 
-    var targetTab = document.querySelector('.price-tab[data-category="' + tab + '"]'); 
-    if (targetTab) { targetTab.click(); 
-    } 
-  } 
-});
