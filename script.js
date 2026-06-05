@@ -300,43 +300,6 @@ if (aboutSlides.length > 0 && aboutDotsContainer) {
     startAboutAuto();
   });
 }
-
-// Галерея с пагинацией
-document.addEventListener('DOMContentLoaded', function() {
-  const slides = document.querySelectorAll('.gallery-slide');
-  const prevBtn = document.getElementById('galleryPrev');
-  const nextBtn = document.getElementById('galleryNext');
-  const currentSpan = document.getElementById('paginationCurrent');
-  const totalSpan = document.getElementById('paginationTotal');
-  let currentIndex = 0;
-  const totalSlides = slides.length;
-  
-  if (totalSpan) totalSpan.textContent = totalSlides;
-  
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-    if (currentSpan) currentSpan.textContent = index + 1;
-    currentIndex = index;
-  }
-  
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    showSlide(currentIndex);
-  }
-  
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    showSlide(currentIndex);
-  }
-  
-  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-  
-  showSlide(0);
-});
-
 // Переключать на прайс определенной услуги
 document.addEventListener('DOMContentLoaded', function() { 
   var urlParams = new URLSearchParams(window.location.search); 
