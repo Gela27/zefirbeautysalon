@@ -65,15 +65,7 @@ document.querySelectorAll('.animate').forEach(function(el) {
   observer.observe(el);
 });
 
-// Переключать на прайс определенной услуги
-document.addEventListener('DOMContentLoaded', function() { 
-  var urlParams = new URLSearchParams(window.location.search); 
-  var tab = urlParams.get('tab'); if (tab) { 
-    var targetTab = document.querySelector('.price-tab[data-category="' + tab + '"]'); 
-    if (targetTab) { targetTab.click(); 
-    } 
-  } 
-});
+
 
 // Слайдер о салоне 
 var currentAboutSlide = 0;
@@ -160,6 +152,15 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+});
+// Переключать на прайс определенной услуги
+document.addEventListener('DOMContentLoaded', function() { 
+  var urlParams = new URLSearchParams(window.location.search); 
+  var tab = urlParams.get('tab'); if (tab) { 
+    var targetTab = document.querySelector('.price-tab[data-category="' + tab + '"]'); 
+    if (targetTab) { targetTab.click(); 
+    } 
+  } 
 });
 
 // 3D карусель мастеров 
